@@ -1,1 +1,9 @@
 
+.DS_Store
+Thumbs.db
+db.json
+*.log
+.idea/
+db/
+node_modules/
+.deploy*/
