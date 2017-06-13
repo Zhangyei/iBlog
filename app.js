@@ -73,15 +73,15 @@ app.use('/api', require('./routers/api'));
 
 
 //监听Http请求  XXX端口的信息数据
-mongoose.connect('mongodb://localhost:27019/Blog', function (err) {
+mongoose.connect('mongodb://localhost:27018/iBlog', function (err) {
     if (err) {
         console.log('数据库连接失败');
         return;
     }
     else {
         console.log('数据库连接成功');
-        app.listen(8002, 'localhost');
-        console.log('Server is running at http://localhost:8002');
+        app.listen(8081, 'localhost');
+        console.log('Server is running at http://localhost:8081');
     }
 });
 // app.listen(8081, 'localhost');
