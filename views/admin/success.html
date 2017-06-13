@@ -1,0 +1,25 @@
+<!--继承 layout 模板 复用头部尾部等页面区域-->
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<!--用户列表-->
+<ol class="breadcrumb">
+    <li><a href="#">管理首页</a></li>
+    <li><span></span>成功提示</li>
+</ol>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">提示</h3>
+    </div>
+    <div class="panel-body">
+        {{ message }}
+    </div>
+    <div class="panel-footer">
+        <!--跳转到指定Url页面-->
+        <a href="{{ url }}">跳转到分类首页</a>
+    </div>
+</div>
+
+
+{% endblock %}

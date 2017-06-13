@@ -1,0 +1,19 @@
+{
+  "name": "iBlog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zhangyi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "body-parser": "^1.17.2",
+    "cookies": "^0.7.0",
+    "markdown": "^0.5.0",
+    "mongoose": "^4.10.2",
+    "swig": "^1.4.2"
+  }
+}

@@ -1,0 +1,191 @@
+/*
+    博客首页 Style
+    ...
+*/
+
+.main-wrapper {
+    background: #444 url("../../images/main/wolfBack.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/*header*/
+header {
+    background: rgba(0, 0, 0, 0.2);
+    height: 150px;
+}
+
+/*nav*/
+nav {
+    height: 50px;
+    background: rgba(225, 225, 225, 0.4);
+    text-align: center;
+}
+
+nav ul {
+    width: 80%;
+    height: 30px;
+    margin: 0px auto;
+    line-height: 30px;
+    padding: 10px 0
+}
+
+nav ul li {
+    display: inline-block;
+    width: 60px;
+    color: #f9f9f9;
+    font-size: 18px;
+}
+
+nav ul li:hover {
+    cursor: pointer;
+    color: #006699;
+    /*text-decoration: underline;*/
+    border-bottom: 2px solid #006699;
+}
+
+/*content*/
+.content-wrapper {
+    background: rgba(225, 225, 225, 0.6);
+    width: 80%;
+    margin: 10px auto;
+    height: 500px;
+    border-radius: 4px;
+}
+
+.content-wrapper .leftModule {
+    width: 72%;
+    margin: 10px 12px;
+    border-width: 1px;
+    border-style: solid;
+    float: left;
+}
+
+.content-wrapper .leftModule .leftBox {
+    width: 98%;
+    min-height: 80px;
+    margin: 6px 6px;
+    border-width: 1px;
+    border-style: dashed;
+}
+
+.content-wrapper .rightModule {
+    width: 23%;
+    margin: 10px 10px 10px 0px;
+    border-width: 1px;
+    border-style: solid;
+    float: right;
+}
+
+.content-wrapper .rightModule .rightBox {
+    width: 94%;
+    min-height: 80px;
+    margin: 6px 6px;
+    border-width: 1px;
+    border-style: dashed;
+}
+
+/*leftModule 文章列表区域*/
+.leftModule .leftBox .articleTitle {
+    text-align: center;
+    color: #006699;
+    padding: 6px 0px;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.leftModule .leftBox .timeLine {
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    text-indent: 10px;
+}
+
+.leftModule .leftBox .summary {
+    min-height: 60px;
+    max-height: 120px;
+    line-height: 20px;
+    text-indent: 10px;
+}
+
+.leftModule .leftBox .readButton {
+    width: 90px;
+    margin: 6px 12px;
+    cursor: pointer;
+}
+
+/*rightModule 注册/登录/热门话题 等等区域*/
+.rightModule .rightBox .title {
+    text-align: center;
+    background: #006699;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+}
+
+.rightModule .rightBox .line {
+    height: 30px;
+    margin: 6px auto;
+    line-height: 30px;
+    width: 80%;
+}
+
+.rightModule .rightBox .line .colDark {
+    display: inline-block;
+    width: 24%;
+}
+
+.rightModule .rightBox .line input {
+    line-height: 24px;
+    border: 1px solid #ccc;
+    width: 74%;
+    float: right;
+}
+
+.rightModule .rightBox .registerBtn {
+    float: right;
+    cursor: pointer;
+}
+
+.rightModule .rightBox .textRight {
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+}
+
+.rightModule .rightBox .colWarning {
+    height: 20px;
+    color: #fb5b4a;
+    text-align: center;
+}
+
+/*footer*/
+footer {
+    height: 60px;
+    background: rgba(0, 0, 0, 0.5);
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+}
+
+/*
+    复用样式处理
+*/
+
+/*控制文本超出宽度显示 ...*/
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.borderColor {
+    border-color: #006699;
+}
+
+.boxHidden {
+    display: none;
+}

@@ -1,0 +1,36 @@
+<!--继承 layout 模板 复用头部尾部等页面区域-->
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<!--用户列表-->
+<ol class="breadcrumb">
+    <li><a href="#">管理首页</a></li>
+    <li><span></span>错误提示</li>
+</ol>
+<div class="panel panel-default">
+    <div class="panel-heading">Panel heading without title</div>
+    <div class="panel-body">
+        Panel content
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">提示</h3>
+    </div>
+    <div class="panel-body">
+        {{ message }}
+    </div>
+    <div class="panel-footer">
+        <!--如果传入有Url 则跳转到指定Url页面-->
+        {% if url %}
+        <a href="{{ url }}">跳转到该Url页面</a>
+        {% else %}
+        <a href="javascript:window.history.back();">返回上一页</a>
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}
