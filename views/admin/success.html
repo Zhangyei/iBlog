@@ -16,8 +16,12 @@
         {{ message }}
     </div>
     <div class="panel-footer">
-        <!--跳转到指定Url页面-->
-        <a href="{{ url }}">跳转到分类首页</a>
+        <!--如果传入有Url 则跳转到指定Url页面-->
+        {% if url %}
+        <a href="{{ url }}">跳转到该Url页面</a>
+        {% else %}
+        <a href="javascript:window.history.back();">返回上一页</a>
+        {% endif %}
     </div>
 </div>
 

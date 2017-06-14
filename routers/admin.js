@@ -312,6 +312,9 @@ routerAdmin.get('/content/add', function (req, res, next) {
 routerAdmin.post('/content/add', function (req, res, next) {
     //
     var postData = req.body;
+    console.log('添加内容传入的数据' + postData.category);
+    // console.dir(postData.category);
+
     // console.log('内容页post上传数据 ' + postData);
     //字段检测等可放前端检测
     //前端检测 可对输入框等 进行响应交互等处理
@@ -324,27 +327,32 @@ routerAdmin.post('/content/add', function (req, res, next) {
     }
     else {
         //数据写入到数据库
-        new Content({
-            category: req.body.category,
-            title: req.body.title,
-            description: req.body.description,
-            content: req.body.content
-        }).save().then(function (rs) {
-            res.render('/admin/success', {
-                userInfo: req.userInfo,
-                message: '内容数据保存成功',
-                url: '/admin/content',
-            });
-        });
-        // console.log(newContent);
-        // newContent.save().then(function (rs) {
-        //     res.render('/admin/success', {
+        // new Content({
+        //     category: postData.category,
+        //     title: postData.title,
+        //     description: postData.description,
+        //     content: postData.content
+        // }).save().then(function (rs) {
+        //     res.render('admin/success', {
         //         userInfo: req.userInfo,
         //         message: '内容数据保存成功',
-        //         url: '/admin/content',
+        //         url: '/admin/content'
         //     });
         // });
-        next();
+        var newContent = new  Content({
+                category: postData.category,
+                title: postData.title,
+                description: postData.description,
+                content: postData.content
+        });
+        // console.log(newContent);
+        newContent.save().then(function (rs) {
+            res.render('admin/success', {
+                userInfo: req.userInfo,
+                message: '内容数据保存成功',
+                url: '/admin/content'
+            });
+        });
     }
 });
 

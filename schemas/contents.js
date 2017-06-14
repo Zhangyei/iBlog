@@ -23,10 +23,9 @@ var schema = new mongoose.Schema({
     //内容简介
     description: {type: String, default: ''},
     //内容
-    content: {type: String, default: ''}
+    content: {type: String, default: ''},
     //更新时间
-    // updateDate: {type: Date, default: Date.now()}
-
+    updateDate: {type: Date, default: Date.now()}
 
 });
 
