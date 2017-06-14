@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hizy</title>
+    <title>iBlog</title>
     <link rel="stylesheet" href="../../public/css/reset.css">
     <link rel="stylesheet" href="../../public/css/main/mainIndex.css">
 </head>
@@ -10,12 +10,21 @@
 <div class="main-wrapper">
     <!--顶部-->
     <!--ToDo 此处采用卡片式轮播方式实现，用户博文or图片 轮播-->
-    <header class="headerArea"></header>
+    <header class="headerArea"><p>TODO 轮播 ...</p></header>
     <!--模块栏-->
     <nav class="moduleBar">
         <ul>
-            {% for category in categories %}
-            <li>{{ category.name }}</li>
+            {% if category =='' %}
+            <li><a class="active" href="/">首页</a></li>
+            {% else %}
+            <li><a href="/">首页</a></li>
+            {% endif %}
+            {% for cate in categories %}
+                {% if category == cate %}
+                <li><a class="active" href="/?category={{ cate.id }}">{{ cate.name }}</a></li>
+                {% else %}
+                <li><a href="/?category={{ cate.id }}">{{ cate.name }}</a></li>
+                {% endif %}
             {% endfor %}
         </ul>
     </nav>
@@ -23,28 +32,44 @@
     <div class="content">
         <div class="content-wrapper">
             <div class="leftModule borderColor">
+                {% for content in contents %}
                 <div class="leftBox borderColor">
-                    <h2 class="articleTitle ellipsis">Article Title</h2>
-                    <p class="timeLine">2017-05-26</p>
-                    <div class="summary">CSS中塌陷现象： 两个盒模型中未设置行内属性或者浮动 当上方元素指定了margin-bottom ，下方元素指定了margin-top时
-                        这两个margin就会发生合并，塌陷尺寸是两个值中较大的一个发生塌陷现象不止在兄弟元素中出现，父子关系中也会发生，当父级元素没有设定padding-top或者
-                    </div>
+                    <h2 class="articleTitle ellipsis">{{ content.title }}</h2>
+                    <p class="colDefault">
+                        作者:<span class="colInfo">{{ content.user.username }}</span>
+                        时间:<span class="colInfo">{{ content.addTime|date('Y-m-d H:i',8*-60) }}</span>
+                        阅读:<span class="colInfo">{{ content.views }}</span>
+                        评论:<span class="colInfo">{{ 0 }}</span>
+                    </p>
+                    <div class="summary">{{ content.description }}</div>
                     <button class="readButton">阅读全文</button>
                 </div>
-                <div class="leftBox borderColor">
-                    <h2 class="articleTitle ellipsis">Article Title</h2>
-                    <p class="timeLine">2017-05-26</p>
-                    <div class="summary">Just do what you love and believe in,and it will come naturally</div>
-                    <button class="readButton">阅读全文</button>
-                </div>
-                <div class="leftBox borderColor">
-                    <h2 class="articleTitle ellipsis">Article Title</h2>
-                    <p class="timeLine">2017-05-26</p>
-                    <div class="summary">Jhttp状态码 1xx (临时响应) 表示临时响应并需要请求者继续执行操作 2xx (表示成功)表示成功处理了请求 3XX (重定向)
-                        表示完成请求需要进一步操作，通常这些状态码用来重定向 4xx (错误)表示请求可能出错，妨碍了服务器处理 5xx (服务器错误) 表示服务器在尝试处理请求时发生内部
-                    </div>
-                    <button class="readButton">阅读全文</button>
-                </div>
+                {% endfor %}
+                <ul class="pager">
+                    <li class="previous">
+                        {% if page<=1 %}
+                        <span>没有上一页了</span>
+                        {% else %}
+                        <a href="/?category=category&page={{ page - 1 }}">上一页</a>
+                        {% endif %}
+                    </li>
+                    {% if pages>0 %}
+                    <li class="pageInfo">
+                        <strong>{{ page }}/{{ pages }}</strong>
+                    </li>
+                    {% else %}
+                    <li class="pageInfo">
+                        <strong>当前分类下暂无内容</strong>
+                    </li>
+                    {% endif %}
+                    <li class="next">
+                        {% if page>=pages %}
+                        <span>没有下一页了</span>
+                        {% else %}
+                        <a href="/?category=category&page={{ page + 1 }}">下一页</a>
+                        {% endif %}
+                    </li>
+                </ul>
             </div>
             <div class="rightModule borderColor">
                 {% if userInfo._id %}
@@ -84,12 +109,24 @@
                     <p class="colWarning textCenter"></p>
                 </div>
                 {% endif %}
+                <!--TODO  其他信息区域-->
+                <div class="rightBox borderColor">
+                    <div class="title"><span>Some</span></div>
+                    <p class="line">Some ...</p>
+                </div>
+                <!--TODO  其他信息区域-->
+                <div class="rightBox borderColor">
+                    <div class="title"><span>Other Area</span></div>
+                    <p class="line">Some ...</p>
+                </div>
 
+                s
             </div>
         </div>
     </div>
+
     <!--底部-->
-    <footer>Hello -- Zhangyi</footer>
+    <footer>Copyright © -- Hizy</footer>
 </div>
 
 </body>

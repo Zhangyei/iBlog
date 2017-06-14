@@ -16,6 +16,14 @@
 header {
     background: rgba(0, 0, 0, 0.2);
     height: 150px;
+
+}
+
+header p {
+    color: #ccc;
+    line-height: 150px;
+    font-size: 16px;
+    text-align: center;
 }
 
 /*nav*/
@@ -37,30 +45,39 @@ nav ul li {
     display: inline-block;
     width: 60px;
     color: #f9f9f9;
-    font-size: 18px;
+    font-size: 16px;
 }
 
-nav ul li:hover {
+nav ul li a {
+    color: #f9f9f9;
+}
+
+nav ul a.active {
     cursor: pointer;
     color: #006699;
-    /*text-decoration: underline;*/
+    border-bottom: 2px solid #006699;
+}
+
+nav ul li a:hover {
+    cursor: pointer;
+    color: #006699;
     border-bottom: 2px solid #006699;
 }
 
 /*content*/
 .content-wrapper {
-    background: rgba(225, 225, 225, 0.6);
+    /*background: rgba(225, 225, 225, 0.6);*/
     width: 80%;
     margin: 10px auto;
-    height: 500px;
+    height: 600px;
     border-radius: 4px;
 }
 
 .content-wrapper .leftModule {
     width: 72%;
     margin: 10px 12px;
-    border-width: 1px;
-    border-style: solid;
+    /*border-width: 1px;*/
+    /*border-style: solid;*/
     float: left;
 }
 
@@ -70,14 +87,17 @@ nav ul li:hover {
     margin: 6px 6px;
     border-width: 1px;
     border-style: dashed;
+    background: rgba(225, 225, 225, 0.6);
 }
 
 .content-wrapper .rightModule {
     width: 23%;
-    margin: 10px 10px 10px 0px;
-    border-width: 1px;
-    border-style: solid;
+    height: 500px;
+    margin: 15px 10px 15px 0px;
+    /*border-width: 1px;*/
+    /*border-style: solid;*/
     float: right;
+
 }
 
 .content-wrapper .rightModule .rightBox {
@@ -86,6 +106,7 @@ nav ul li:hover {
     margin: 6px 6px;
     border-width: 1px;
     border-style: dashed;
+    background: rgba(225, 225, 225, 0.6)
 }
 
 /*leftModule 文章列表区域*/
@@ -97,16 +118,24 @@ nav ul li:hover {
     margin: 0 auto;
 }
 
-.leftModule .leftBox .timeLine {
+.leftModule .leftBox .colDefault {
     height: 30px;
     line-height: 30px;
-    text-align: left;
+    text-align: center;
     text-indent: 10px;
 }
 
+.leftModule .leftBox .colDefault .colInfo {
+    margin: 0px 10px;
+}
+
+.leftModule .leftBox .colDefault span {
+    color: #006699;
+}
+
 .leftModule .leftBox .summary {
-    min-height: 60px;
-    max-height: 120px;
+    min-height: 40px;
+    max-height: 80px;
     line-height: 20px;
     text-indent: 10px;
 }
@@ -172,6 +201,46 @@ footer {
 }
 
 /*
+    分页
+*/
+.pager li {
+    display: inline-block;
+    color: #006699;
+}
+
+.pager {
+    width: 98%;
+    margin: 6px 6px;
+    text-align: center;
+    height: 40px;
+    background: rgba(225, 225, 225, 0.6);
+    line-height: 40px;
+    color: #fff;
+}
+
+.pager a {
+    color: #006699;
+}
+
+.pager a:hover {
+    color: #df6b31;
+}
+
+.pager .previous {
+    width: 20%;
+    float: left;
+}
+
+.pager .pageInfo {
+    width: 60%;
+}
+
+.pager .next {
+    width: 20%;
+    float: right;
+}
+
+/*
     复用样式处理
 */
 
@@ -183,7 +252,7 @@ footer {
 }
 
 .borderColor {
-    border-color: #006699;
+    border-color: #cccccc;
 }
 
 .boxHidden {

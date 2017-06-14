@@ -283,7 +283,7 @@ routerAdmin.get('/content', function (req, res, next) {
         //总页数
         pages = Math.ceil(count / limit);
         //
-        Content.find().sort({_id: -1}).limit(limit).skip(skip).populate('category').then(function (contents) {
+        Content.find().sort({addTime: -1}).limit(limit).skip(skip).populate('category').then(function (contents) {
             // console.log('分类首页回显数据' + contents);
             res.render('admin/content_index', {
                 userInfo: req.userInfo,

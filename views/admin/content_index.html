@@ -17,8 +17,10 @@
             <th class="text-center">ID</th>
             <th class="text-center">所属版块</th>
             <th class="text-center">标题</th>
+            <th class="text-center">作者</th>
             <th class="text-center">简介</th>
-            <!--<th class="text-center">更新时间</th>-->
+            <th class="text-center">添加时间</th>
+            <th class="text-center">阅读量</th>
             <th class="text-center">操作</th>
         </tr>
 
@@ -27,8 +29,12 @@
             <td>{{ content._id.toString() }}</td>
             <td>{{ content.category.name }}</td>
             <td>{{ content.title }}</td>
+            <td>{{ content.user.name }}</td>
             <td>{{ content.description }}</td>
-            <!--<td>{{ category.updateTime }}</td>-->
+            <!--使用模板 内置的过滤器处理时间 swig - lib - filter下 date方法处理-->
+            <!-- 8 * -60 处理时间 偏移 如：系统后台Date.now()取得时间比所在东8区早所以需要进行时间偏移处理8*60分钟-->
+            <td>{{ content.addTime|date('Y-m-d H:i:s',8*-60) }}</td>
+            <td>{{ content.views }}</td>
             <td>
                 <a href="/admin/content/edit?id={{content._id.toString()}}">修改</a> |
                 <a href="/admin/content/delete?id={{content._id.toString()}}">删除</a>
