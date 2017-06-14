@@ -48,8 +48,10 @@ app.use(function (req, res, next) {
         try {
             req.userInfo = JSON.parse(req.cookies.get('userInfo'));
             //获取当前登录用户的类型//是否是管理员
+            //只有超级管理员可以进行//用户管理//普通用户//只能进行模块//内容//留言等管理
             User.findById(req.userInfo._id).then(function (userInfo) {
                 req.userInfo.isAdmin = Boolean(userInfo.isAdmin);
+                req.userInfo.isSuperAdmin = Boolean(userInfo.isSuperAdmin);
                 next();
             });
         }

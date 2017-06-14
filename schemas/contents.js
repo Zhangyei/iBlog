@@ -16,7 +16,13 @@ var schema = new mongoose.Schema({
         //类型
         type: mongoose.Schema.Types.ObjectId,
         //引用
-        ref: 'Content'//  关联category表中的ID 字段
+        ref: 'Category'//  关联category表中的ID 字段
+    },
+    user: {
+        //类型
+        type: mongoose.Schema.Types.ObjectId,
+        //引用
+        ref: 'User'//  关联user表中的ID 字段
     },
     //内容标题
     title: String,
@@ -24,8 +30,12 @@ var schema = new mongoose.Schema({
     description: {type: String, default: ''},
     //内容
     content: {type: String, default: ''},
-    //更新时间
-    updateDate: {type: Date, default: Date.now()}
+    //添加时间
+    addTime: {type: Date, default: new Date()},
+
+    //阅读数
+    views: {type: Number, default: 0}
+
 
 });
 

@@ -9,6 +9,11 @@ var mongoose = require('mongoose');
 var schema = new mongoose.Schema({
     username: String,
     password: String,
+    //是否是超级管理员
+    isSuperAdmin: {
+        type: Boolean,
+        default: false
+    },
     //是否是管理员
     isAdmin: {
         type: Boolean,

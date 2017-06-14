@@ -17,13 +17,15 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+                {% if userInfo.isSuperAdmin %}
                 <li><a href="/admin/user">用户管理</a></li>
+                {% endif %}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">分类管理 <span class="caret"></span></a>
+                       aria-expanded="false">版块管理 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/admin/category">分类首页</a></li>
-                        <li><a href="/admin/category/add">添加分类</a></li>
+                        <li><a href="/admin/category">版块首页</a></li>
+                        <li><a href="/admin/category/add">添加版块</a></li>
                     </ul>
 
                 </li>

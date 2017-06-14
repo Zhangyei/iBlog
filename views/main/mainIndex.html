@@ -15,7 +15,7 @@
     <nav class="moduleBar">
         <ul>
             {% for category in categories %}
-                <li>{{ category.name }}</li>
+            <li>{{ category.name }}</li>
             {% endfor %}
         </ul>
     </nav>
@@ -52,7 +52,7 @@
                     <div class="title"><span>用户信息</span></div>
                     <p class="line">{{ userInfo.username }}</p>
                     {% if userInfo.isAdmin %}
-                    <p class="line"><span>你好管理员！</span><a href="/admin">进入管理</a></p>
+                    <p class="line"><span>欢迎登陆！</span><a href="/admin">进入后台管理？</a></p>
                     {% else %}
                     <p class="line">欢迎你！</p>
                     {% endif %}

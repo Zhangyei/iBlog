@@ -76,7 +76,8 @@ routerApi.post('/user/register', function (req, res, next) {
             var userRegisterData = new User({
                 username: username,
                 password: password,
-                isAdmin: false
+                isSuperAdmin: false,
+                isAdmin: true
             });
             userRegisterData.save();//
             return;
@@ -103,19 +104,7 @@ routerApi.post('/user/login', function (req, res, next) {
         username: uName,
         password: pWord
     }).then(function (userInfo) {
-        console.log(userInfo);
-        // if (userInfo.username !== uName) {
-        //     responseData.code = '1';
-        //     responseData.message = '不存在该用户名';
-        //     res.json(responseData);
-        //     return;
-        // }
-        // else if (userInfo.password !== pWord) {
-        //     responseData.code = '2';
-        //     responseData.message = '密码有误';
-        //     res.json(responseData);
-        //     return;
-        // }
+        // console.log(userInfo);
         if (!userInfo) {
             responseData.code = '1';
             responseData.message = '用户名或密码错误';

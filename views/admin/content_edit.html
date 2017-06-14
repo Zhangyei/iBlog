@@ -1,0 +1,47 @@
+<!--继承 layout 模板 复用头部尾部等页面区域-->
+{% extends 'layout.html' %}
+
+{% block main %}
+<div class="jumbotron">
+    <!--用户列表-->
+    <ol class="breadcrumb">
+        <li><a href="#">内容首页</a></li>
+        <li><span></span>内容修改</li>
+    </ol>
+    <hr>
+    <h3>内容修改 - 标题: {{ content.title }}</h3>
+    <p>所属分类-{{ content.category.name }}</p>
+    <hr>
+    <form method="post">
+        <div class="form-group">
+            <label for="title">分类</label>
+            <select name="category" id="category" class="form-control">
+                {% for category in categories %}
+                    {% if content.category._id.toString() === category.id %}
+                         <option value="{{  category.id }}" selected>{{ category.name }}</option>
+                     {% else %}
+                        <option value="{{  category.id }}">{{ category.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="title">标题</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="请输入标题"
+                   value="{{ content.title }}">
+        </div>
+        <div class="form-group">
+            <label for="title">简介</label>
+            <textarea class="form-control" id="description" name="description"
+                      placeholder="请输入简介">{{ content.description }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="title">内容</label>
+            <textarea class="form-control" id="content" name="content"
+                      placeholder="请输入内容...">{{ content.description }}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-default">修改提交</button>
+    </form>
+</div>
+{% endblock %}
