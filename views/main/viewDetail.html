@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="leftBox borderColor">
+    <h2 class="articleTitle ellipsis">{{ content.title }}</h2>
+    <p class="colDefault">
+        作者:<span class="colInfo">{{ content.user.username }}</span>
+        时间:<span class="colInfo">{{ content.addTime|date('Y-m-d H:i',8*-60) }}</span>
+        阅读:<span class="colInfo">{{ content.views }}</span>
+        评论:<span class="colInfo">{{ 0 }}</span>
+    </p>
+    <div class="contentDetail">{{ content.content }}</div>
+
+</div>
+<!--评论区域-->
+<div class="leftBox borderColor message">
+    <h3 class="colInfo"><strong>评论</strong><span class="em">一共有<em id="messageCount">0</em>条评论</span></h3>
+    <p class="colInfo">Hi</p>
+    <p class="colInfo">
+        <textarea id=messageContent></textarea>
+        <input type="hidden" id="contentID" value="{{ content.id }}">
+        <button id="messageBtn">提交评论</button>
+    </p>
+    <div class="colInfo bgDanger boxHidden">你还未登录，请先登录...</div>
+    <div class="messageList">
+        <!--<div class="messageBox"><p>暂时还没有评论！</p></div>-->
+    </div>
+    <!--<div class="messageList ">-->
+        <!--<div class="messageBox">-->
+            <!--<p class="messageLine clear">-->
+                <!--<span class="floatLeft">xxx</span>-->
+                <!--<span class="floatRight">日期</span>-->
+            <!--</p>-->
+            <!--<p>哈哈</p>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+
+<script type="text/javascript" src="../../public/plug-in/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../public/js/main/comments.js"></script>
+
+{% endblock %}

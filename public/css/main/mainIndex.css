@@ -43,7 +43,7 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    width: 60px;
+    min-width: 60px;
     color: #f9f9f9;
     font-size: 16px;
 }
@@ -140,10 +140,71 @@ nav ul li a:hover {
     text-indent: 10px;
 }
 
+.leftModule .leftBox .contentDetail {
+    min-height: 40px;
+    line-height: 20px;
+    text-indent: 10px;
+}
+
 .leftModule .leftBox .readButton {
     width: 90px;
     margin: 6px 12px;
     cursor: pointer;
+}
+
+.leftModule .leftBox .readButton a {
+    color: #006699;
+    text-decoration: none
+}
+
+.leftModule .leftBox .readButton a:hover {
+    color: #df6b31;
+}
+
+/*评论区域*/
+.leftModule .message {
+    min-height: 150px !important;
+}
+
+.leftModule .message .colInfo {
+    height: 30px;
+    line-height: 30px;
+    margin: 0 15px;
+}
+
+.leftModule .message strong {
+    float: left;
+    font-size: 16px;
+}
+em{
+    color: red;
+}
+
+.leftModule .message h3 span {
+    float: right;
+}
+
+.leftModule .message textarea {
+    float: left;
+    width: 90%;
+    height: 30px;
+    resize: none;
+    padding: 0;
+    line-height: 30px;
+}
+
+.leftModule .message button {
+    width: 9%;
+    height: 30px;
+    float: right;
+    cursor: pointer;
+}
+
+.bgDanger{
+    text-align: center;
+    color: #fff;
+    background: #ccc;
+    margin:20px 15px !important;
 }
 
 /*rightModule 注册/登录/热门话题 等等区域*/
@@ -189,6 +250,23 @@ nav ul li a:hover {
     height: 20px;
     color: #fb5b4a;
     text-align: center;
+}
+
+/*
+    评论内容相关显示
+*/
+.message .messageList{
+    margin:20px 15px;
+    min-height: 40px;
+    line-height: 20px;
+}
+.message .messageList .messageBox{
+    min-height: 40px;
+    line-height: 20px;
+    background: #ccc;
+}
+.message .messageList .messageBox .messageLine{
+    height:30px;
 }
 
 /*footer*/
@@ -257,4 +335,8 @@ footer {
 
 .boxHidden {
     display: none;
+}
+
+.clear{
+    clear: both;
 }

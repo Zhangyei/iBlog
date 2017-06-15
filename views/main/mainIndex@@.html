@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iBlog</title>
+    <link rel="stylesheet" href="../../public/css/reset.css">
+    <link rel="stylesheet" href="../../public/css/main/mainIndex.css">
+</head>
+<body>
+<div class="main-wrapper">
+    <!--顶部-->
+    <!--ToDo 此处采用卡片式轮播方式实现，用户博文or图片 轮播-->
+    <header class="headerArea"><p>TODO 轮播 ...</p></header>
+    <!--模块栏-->
+    <nav class="moduleBar">
+        <ul>
+            {% if category =='' %}
+            <li><a class="active" href="/">首页</a></li>
+            {% else %}
+            <li><a href="/">首页</a></li>
+            {% endif %}
+            {% for cate in categories %}
+            {% if category === cate.id %}
+            <li><a class="active" href="/?category={{ cate.id }}">{{ cate.name }}</a></li>
+            {% else %}
+            <li><a href="/?category={{ cate.id }}">{{ cate.name }}</a></li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+    <!--内容区-->
+    <div class="content">
+        <div class="content-wrapper">
+            <div class="leftModule borderColor">
+                {% for content in contents %}
+                <div class="leftBox borderColor">
+                    <h2 class="articleTitle ellipsis">{{ content.title }}</h2>
+                    <p class="colDefault">
+                        作者:<span class="colInfo">{{ content.user.username }}</span>
+                        时间:<span class="colInfo">{{ content.addTime|date('Y-m-d H:i',8*-60) }}</span>
+                        阅读:<span class="colInfo">{{ content.views }}</span>
+                        评论:<span class="colInfo">{{ 0 }}</span>
+                    </p>
+                    <div class="summary">{{ content.description }}</div>
+                    <button class="readButton"><a href="/view?contentID={{ content.id }}">阅读全文</a></button>
+                </div>
+                {% endfor %}
+
+                <!--评论区域-->
+                <div class="leftBox borderColor message boxHidden">
+                    <h3 class="colInfo"><strong>评论</strong><span class="em">一共有<em id="messageCount">0</em>条评论</span>
+                    </h3>
+                    <p class="colInfo">Hi</p>
+                    <p class="colInfo">
+                        <textarea id=messageContent></textarea>
+                        <button>提交评论</button>
+                    </p>
+                </div>
+
+                <ul class="pager">
+                    <li class="previous">
+                        {% if page<=1 %}
+                        <span>没有上一页了</span>
+                        {% else %}
+                        <a href="/?category=category&page={{ page - 1 }}">上一页</a>
+                        {% endif %}
+                    </li>
+                    {% if pages>0 %}
+                    <li class="pageInfo">
+                        <strong>{{ page }}/{{ pages }}</strong>
+                    </li>
+                    {% else %}
+                    <li class="pageInfo">
+                        <strong>当前分类下暂无内容</strong>
+                    </li>
+                    {% endif %}
+                    <li class="next">
+                        {% if page>=pages %}
+                        <span>没有下一页了</span>
+                        {% else %}
+                        <a href="/?category=category&page={{ page + 1 }}">下一页</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+            <div class="rightModule borderColor">
+                {% if userInfo._id %}
+                <div class="rightBox borderColor" id="userInfoBox">
+                    <div class="title"><span>用户信息</span></div>
+                    <p class="line">{{ userInfo.username }}</p>
+                    {% if userInfo.isAdmin %}
+                    <p class="line"><span>欢迎登陆！</span><a href="/admin">进入后台管理？</a></p>
+                    {% else %}
+                    <p class="line">欢迎你！</p>
+                    {% endif %}
+                    <div class="textRight"><a href="javascript:;" class="colMint" name="logout">退出</a></div>
+                </div>
+                {% else %}
+                <div class="rightBox borderColor" id="loginBox">
+                    <div class="title"><span>登录</span></div>
+                    <div class="line"><span class="colDark">用户名:</span><input name="username" type="text"></div>
+                    <div class="line"><span class="colDark">密码:</span><input name="password" type="text"></div>
+                    <div class="line"><span class="colDark"></span>
+                        <button class="registerBtn" id="loginBtn">登录</button>
+                    </div>
+                    <p class="textRight">
+                        <a href="javascript:;" class="colMint" name="backLogin">返回注册</a>
+                        <a href="javascript:;" class="colMint" name="getPassword">找回密码</a>
+                    </p>
+                    <p class="colWarning textCenter"></p>
+                </div>
+                <div class="rightBox borderColor boxHidden" id="registerBox">
+                    <div class="title"><span>注册</span></div>
+                    <div class="line"><span class="colDark">用户名:</span><input name="username" type="text"></div>
+                    <div class="line"><span class="colDark">密码:</span><input name="password" type="text"></div>
+                    <div class="line"><span class="colDark">确认:</span><input name="repassword" type="text"></div>
+                    <div class="line"><span class="colDark"></span>
+                        <button class="registerBtn" id="registerBtn">注册</button>
+                    </div>
+                    <p class="textRight">已有账号 ?<a href="javascript:;" class="colMint" name="login">马上登录</a></p>
+                    <p class="colWarning textCenter"></p>
+                </div>
+                {% endif %}
+                <!--TODO  其他信息区域-->
+                <div class="rightBox borderColor">
+                    <div class="title"><span>Some</span></div>
+                    <p class="line">Some ...</p>
+                </div>
+                <!--TODO  其他信息区域-->
+                <div class="rightBox borderColor">
+                    <div class="title"><span>Other Area</span></div>
+                    <p class="line">Some ...</p>
+                </div>
+
+                s
+            </div>
+        </div>
+    </div>
+
+    <!--底部-->
+    <footer>Copyright © -- Hizy</footer>
+</div>
+
+</body>
+<script type="text/javascript" src="../../public/plug-in/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../public/js/main/mainIndex.js"></script>
+</html>

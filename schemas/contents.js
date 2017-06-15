@@ -34,8 +34,13 @@ var schema = new mongoose.Schema({
     addTime: {type: Date, default: new Date()},
 
     //阅读数
-    views: {type: Number, default: 0}
+    views: {type: Number, default: 0},
 
+    //评论
+    comments: {
+        type: Array,
+        default: []
+    }
 
 });
 

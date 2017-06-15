@@ -2,13 +2,6 @@
 
 $(function () {
 
-    // //首页 模块切花事件
-    // $(".moduleBar").find('ul li a').on("click",function () {
-    //     $(this).parents("ul").find("a").removeClass("active");
-    //     $(this).addClass("active");
-    // });
-
-
     $rightModule = $(".rightModule");//
 
     var $registerBtn = $("#registerBtn");
