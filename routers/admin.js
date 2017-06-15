@@ -31,7 +31,7 @@ var Content = require('../models/Content');//内容模型
 //
 routerAdmin.use(function (req, res, next) {
     //对进入用户身份进行验证
-    if (!req.userInfo.isAdmin || !req.userInfo.isSuperAdmin) {
+    if (!req.userInfo.isAdmin) {
         res.send('你不是管理员，不能访问后台管理！');
         return;
     }
@@ -296,7 +296,6 @@ routerAdmin.get('/content', function (req, res, next) {
         });
     });
 });
-
 //内容添加
 routerAdmin.get('/content/add', function (req, res, next) {
     //内容添加//下拉选择分类//从数据库取出分类数据
@@ -430,6 +429,12 @@ routerAdmin.get('/content/delete', function (req, res, next) {
     });
 });
 
+
+//退出
+routerAdmin.get('/logout', function (req, res) {
+    req.cookies.set('userInfo', null);
+    res.render('main/mainIndex', {});
+});
 
 module.exports = routerAdmin;
 

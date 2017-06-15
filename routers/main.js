@@ -49,8 +49,10 @@ router.get('/', function (req, res, next) {
     if (data.category) {
         whereStr.category = data.category;
     }
+    //如果用户未登录//游客 则只显示 首页--即无自己定制版块
 
-    //读取所有分类信息
+
+    //读取某用户所有分类信息
     Category.find().where(whereStr).then(function (count) {
 
         data.count = count;

@@ -16,28 +16,46 @@
 <!--评论区域-->
 <div class="leftBox borderColor message">
     <h3 class="colInfo"><strong>评论</strong><span class="em">一共有<em id="messageCount">0</em>条评论</span></h3>
-    <p class="colInfo">Hi</p>
+    <!--<p class="colInfo"></p>-->
     <p class="colInfo">
         <textarea id=messageContent></textarea>
         <input type="hidden" id="contentID" value="{{ content.id }}">
-        <button id="messageBtn">提交评论</button>
+        <button id="messageBtn">提交</button>
     </p>
     <div class="colInfo bgDanger boxHidden">你还未登录，请先登录...</div>
     <div class="messageList">
         <!--<div class="messageBox"><p>暂时还没有评论！</p></div>-->
     </div>
     <!--<div class="messageList ">-->
-        <!--<div class="messageBox">-->
-            <!--<p class="messageLine clear">-->
-                <!--<span class="floatLeft">xxx</span>-->
-                <!--<span class="floatRight">日期</span>-->
-            <!--</p>-->
-            <!--<p>哈哈</p>-->
-        <!--</div>-->
+    <!--<div class="messageBox">-->
+    <!--<p class="messageLine clear">-->
+    <!--<span class="floatLeft">xxx</span>-->
+    <!--<span class="floatRight">日期</span>-->
+    <!--</p>-->
+    <!--<p>哈哈</p>-->
     <!--</div>-->
+    <!--</div>-->
+
+    <!--评论分页-->
+    <ul class="pager">
+        <li class="previous">
+<!--            <span>没有上一页了</span>
+            <a href="/?category=category&page={{ page - 1 }}">上一页</a>-->
+        </li>
+        <li class="pageInfo">
+            <strong></strong>
+        </li>
+        <li class="next">
+            <!--            <span>没有下一页了</span>
+                        <a href="/?category=category&page={{ page + 1 }}">下一页</a>-->
+        </li>
+    </ul>
+
 </div>
 
+
 <script type="text/javascript" src="../../public/plug-in/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../public/js/comLibrary.js"></script>
 <script type="text/javascript" src="../../public/js/main/comments.js"></script>
 
 {% endblock %}

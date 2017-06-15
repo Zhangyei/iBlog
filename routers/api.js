@@ -159,7 +159,7 @@ routerApi.post('/comment/post', function (req, res, next) {
     var contentID = req.body.contentID;
     //定义评论 数组中字段
     var postData = {
-        username: req.userInfo.username,
+        username: req.userInfo.username || '游客',
         postTime: new Date(),
         comment: req.body.comment
     }
@@ -173,7 +173,7 @@ routerApi.post('/comment/post', function (req, res, next) {
         responseData.message = "评论成功";
         responseData.data = newContent;
         res.json(responseData);
-    })
+    });
 });
 
 

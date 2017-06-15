@@ -2,43 +2,43 @@
 
 {% block content %}
 
-    {% for content in contents %}
-    <div class="leftBox borderColor">
-        <h2 class="articleTitle ellipsis">{{ content.title }}</h2>
-        <p class="colDefault">
-            作者:<span class="colInfo">{{ content.user.username }}</span>
-            时间:<span class="colInfo">{{ content.addTime|date('Y-m-d H:i',8*-60) }}</span>
-            阅读:<span class="colInfo">{{ content.views }}</span>
-            评论:<span class="colInfo">{{ 0 }}</span>
-        </p>
-        <div class="summary">{{ content.description }}</div>
-        <button class="readButton"><a href="/view?contentID={{ content.id }}">阅读全文</a></button>
-    </div>
-    {% endfor %}
-    <ul class="pager">
-        <li class="previous">
-            {% if page<=1 %}
-            <span>没有上一页了</span>
-            {% else %}
-            <a href="/?category=category&page={{ page - 1 }}">上一页</a>
-            {% endif %}
-        </li>
-        {% if pages>0 %}
-        <li class="pageInfo">
-            <strong>{{ page }}/{{ pages }}</strong>
-        </li>
+{% for content in contents %}
+<div class="leftBox borderColor">
+    <h2 class="articleTitle ellipsis">{{ content.title }}</h2>
+    <p class="colDefault">
+        作者:<span class="colInfo">{{ content.user.username }}</span>
+        时间:<span class="colInfo">{{ content.addTime|date('Y-m-d H:i',8*-60) }}</span>
+        阅读:<span class="colInfo">{{ content.views }}</span>
+        评论:<span class="colInfo">{{ content.comments.length }}</span>
+    </p>
+    <div class="summary">{{ content.description }}</div>
+    <button class="readButton"><a href="/view?contentID={{ content.id }}">阅读全文</a></button>
+</div>
+{% endfor %}
+<ul class="pager">
+    <li class="previous">
+        {% if page<=1 %}
+        <span>没有上一页了</span>
         {% else %}
-        <li class="pageInfo">
-            <strong>当前分类下暂无内容</strong>
-        </li>
+        <a href="/?category=category&page={{ page - 1 }}">上一页</a>
         {% endif %}
-        <li class="next">
-            {% if page>=pages %}
-            <span>没有下一页了</span>
-            {% else %}
-            <a href="/?category=category&page={{ page + 1 }}">下一页</a>
-            {% endif %}
-        </li>
-    </ul>
+    </li>
+    {% if pages>0 %}
+    <li class="pageInfo">
+        <strong>{{ page }}/{{ pages }}</strong>
+    </li>
+    {% else %}
+    <li class="pageInfo">
+        <strong>...</strong>
+    </li>
+    {% endif %}
+    <li class="next">
+        {% if page>=pages %}
+        <span>没有下一页了</span>
+        {% else %}
+        <a href="/?category=category&page={{ page + 1 }}">下一页</a>
+        {% endif %}
+    </li>
+</ul>
 
 {% endblock %}

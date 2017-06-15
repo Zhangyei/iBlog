@@ -50,6 +50,7 @@ nav ul li {
 
 nav ul li a {
     color: #f9f9f9;
+    text-decoration: none;
 }
 
 nav ul a.active {
@@ -144,6 +145,7 @@ nav ul li a:hover {
     min-height: 40px;
     line-height: 20px;
     text-indent: 10px;
+    margin: 20px;
 }
 
 .leftModule .leftBox .readButton {
@@ -191,6 +193,7 @@ em{
     resize: none;
     padding: 0;
     line-height: 30px;
+    outline: none;
 }
 
 .leftModule .message button {
@@ -264,9 +267,11 @@ em{
     min-height: 40px;
     line-height: 20px;
     background: #ccc;
+    margin:10px 0px;
 }
 .message .messageList .messageBox .messageLine{
     height:30px;
+    color: #1b6d85;
 }
 
 /*footer*/
