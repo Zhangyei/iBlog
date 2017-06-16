@@ -24,7 +24,7 @@ iBlog是在学习NodeJs时候一个练手项目Demo
 
 ####路由实现等说明
 
-#####API 路由模块//接口路由
+##### api 接口路由
 	 / 				首页
   	 /register    用户注册
  	 /login      用户登录
@@ -32,7 +32,7 @@ iBlog是在学习NodeJs时候一个练手项目Demo
 	 /comment/post  评论提交
 	 
 	 
-#####main 模块
+##### main 模块
 	/                首页
  	/view            内容页
 
