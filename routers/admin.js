@@ -243,7 +243,6 @@ routerAdmin.post('/category/edit', function (req, res) {
                 }
             );
         }
-
     }).then(function () {
         res.render('admin/success', {
             userInfo: req.userInfo,
